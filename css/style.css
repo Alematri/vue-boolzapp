@@ -178,6 +178,8 @@
 .msg-user{
   font-size: 11px;
   color: var(--icon-gray);
+  overflow-y: hidden;
+  max-height: 11px;
 }
 
 .date-user{
