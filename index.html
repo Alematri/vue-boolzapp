@@ -24,57 +24,168 @@
 
 <body>
   <main>
-    <div id="app">
+    <div class="background">
+      <div id="app">
 
-      <div class="container">
+        <div class="container">
 
-        <div class="sidebar">
+          <!-- SIDEBAR -->
+          <div class="sidebar">
 
-          <div class="info">
-            <div class="left-info">
-              <img src="img/avatar_1.jpg">
-              <h5 id="user">Alematri</h5>
-            </div>
-
-            <div class="right-icon">
-              <i class="fas fa-spinner"></i>
-              <i class="fas fa-comment-alt"></i>
-              <i class="fas fa-ellipsis-v"></i>
-            </div>
-          </div>
-
-          <div class="notifiche">
-            <div id="bell">
-              <i class="far fa-bell-slash"></i>
-            </div>
-            <div>
-              <h5>Ricevi notifiche di nuovi messaggi</h5>
-              <a href="#">Attiva notifiche desktop</a>
-            </div>
-          </div>
-
-          <div class="search">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Cerca o inizia una nuova chat">
-          </div>
-          
-          <ul class="list">
-            <li class="list-chat bg-active">
-              <img src="img/avatar_2.jpg">
-              <div class="info-c">
-                <p class="name-user">Mariano</p>
-                <p class="msg-user">Ultimo messaggio inviato</p>
+            <div class="info">
+              <div class="left-info">
+                <img src="img/avatar_1.jpg">
+                <h5 id="user">Alematri</h5>
               </div>
-              <span class="date-user">12:00</span>
-            </li>
-          </ul>
+
+              <div class="right-icon">
+                <i class="fas fa-spinner"></i>
+                <i class="fas fa-comment-alt"></i>
+                <i class="fas fa-ellipsis-v"></i>
+              </div>
+            </div>
+
+            <div class="notifiche">
+              <div id="bell">
+                <i class="far fa-bell-slash"></i>
+              </div>
+              <div>
+                <h5>Ricevi notifiche di nuovi messaggi</h5>
+                <a href="#">Attiva notifiche desktop</a>
+              </div>
+            </div>
+
+            <div class="search">
+              <i class="fas fa-search"></i>
+              <input type="text" placeholder="Cerca o inizia una nuova chat">
+            </div>
+            
+            <ul class="list">
+
+              <li class="list-chat bg-active">
+                <img src="img/avatar_2.jpg">
+                <div class="info-c">
+                  <p class="name-user">Mariano</p>
+                  <p class="msg-user">Ultimo messaggio inviato</p>
+                </div>
+                <span class="date-user">12:00</span>
+              </li>
+
+              <li class="list-chat">
+                <img src="img/avatar_2.jpg">
+                <div class="info-c">
+                  <p class="name-user">Mariano</p>
+                  <p class="msg-user">Ultimo messaggio inviato</p>
+                </div>
+                <span class="date-user">12:00</span>
+              </li>
+
+              <li class="list-chat">
+                <img src="img/avatar_2.jpg">
+                <div class="info-c">
+                  <p class="name-user">Mariano</p>
+                  <p class="msg-user">Ultimo messaggio inviato</p>
+                </div>
+                <span class="date-user">12:00</span>
+              </li>
+
+              <li class="list-chat">
+                <img src="img/avatar_2.jpg">
+                <div class="info-c">
+                  <p class="name-user">Mariano</p>
+                  <p class="msg-user">Ultimo messaggio inviato</p>
+                </div>
+                <span class="date-user">12:00</span>
+              </li>
+
+              <li class="list-chat">
+                <img src="img/avatar_2.jpg">
+                <div class="info-c">
+                  <p class="name-user">Mariano</p>
+                  <p class="msg-user">Ultimo messaggio inviato</p>
+                </div>
+                <span class="date-user">12:00</span>
+              </li>
+
+              <li class="list-chat">
+                <img src="img/avatar_2.jpg">
+                <div class="info-c">
+                  <p class="name-user">Mariano</p>
+                  <p class="msg-user">Ultimo messaggio inviato</p>
+                </div>
+                <span class="date-user">12:00</span>
+              </li>
+
+              <li class="list-chat">
+                <img src="img/avatar_2.jpg">
+                <div class="info-c">
+                  <p class="name-user">Mariano</p>
+                  <p class="msg-user">Ultimo messaggio inviato</p>
+                </div>
+                <span class="date-user">12:00</span>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <!-- CHAT -->
+          <div class="chat">
+
+            <div class="info-chat">
+
+              <div class="info-chat-left">
+                <img src="img/avatar_3.jpg">
+                <div class="info-c">
+                  <div class="name-user">Mariottide</div>
+                  <div class="msg-user">Ultimo accesso oggi alle 12:00</div>
+                </div>
+              </div>
+
+              <div class="right-icon-chat">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-paperclip"></i>
+                <i class="fas fa-ellipsis-v"></i>
+              </div>
+
+            </div>
+
+            <div class="main-chat">
+
+              <div>
+                <div class="message sent">
+                  Zara ha mangiato i biscotti?
+                  <div class="date-msg">
+                    <span id="date">12:00</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="message received">
+                  Sì
+                  <div class="date-msg">
+                    <span id="date">12:00</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="write-chat">
+              <span>
+                <i class="far fa-smile"></i>
+              </span>
+              <input placeholder="Scrivi un messaggio" type="text">
+              <span>
+                <i class="fas fa-microphone"></i>
+              </span>
+            </div>
+
+
+          </div>
 
         </div>
-
-        <div class="chat">
-          
-        </div>
-
       </div>
     </div>
   </main>
