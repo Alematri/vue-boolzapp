@@ -1,8 +1,11 @@
+const dt = luxon.DateTime;
+
 const { createApp } = Vue;
 
 createApp({
   data(){
-    return{      
+    return{
+      clock: '',    
       contacts: [
         {
             name: 'Michele',
@@ -169,7 +172,8 @@ createApp({
     }
   },
 
-  methods:{
+  mounted(){
+    this.clock = dt.now().setLocale('it').toLocateString(dt.DATETIME_SHORT_WHIT_SECONDS)
   },
 
 }).mount('#app');
