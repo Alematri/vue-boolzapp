@@ -175,6 +175,7 @@ createApp({
   },
 
   methods: {
+    // Attivare il contatto selezionato
     setActiveContact(contact) {
       this.activeContact = contact;
     },
@@ -182,9 +183,35 @@ createApp({
       this.selectedContactIndex = index;
       this.setActiveContact(this.contacts[index]);
     },
+
+    // Controllo per non inviare messaggi vuoti
+    sendMessage() {
+      if (this.newMessage.trim() === '') {
+        return;
+      }
+      // Aggiungi il tuo messaggio inviato all'array
+      this.activeContact.messages.push({
+        date: dt.now().toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS),
+        message: this.newMessage,
+        status: 'sent',
+      });
+
+      // Reset della barra di input del messaggio
+      this.newMessage = '';
+
+      // Risposta automatica dopo 2 secondi
+      setTimeout(() => {
+        this.activeContact.messages.push({
+          date: dt.now().toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS),
+          message: 'Ok',
+          status: 'received',
+        });
+      }, 2000);
+    },
   },
 
   mounted(){
+    // Luxon
     this.setActiveContact(this.contacts[0]);
     this.selectedContactIndex = 0;
     this.clock = dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);

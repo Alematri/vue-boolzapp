@@ -238,11 +238,18 @@
   padding: 8px 10px;
   width: auto;
   height: auto;
-  border-radius: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  border-radius: 5px;
+  margin-bottom: 5px;
   margin-left: 20px;
   min-width: 30%;
+}
+
+.main-chat .message:first-child{
+  margin-top: 20px;
+}
+
+.main-chat .message:last-child{
+  margin-bottom: 20px;
 }
 
 .sent{
