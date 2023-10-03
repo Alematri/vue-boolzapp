@@ -64,16 +64,17 @@
             </div>
             
             <ul class="list">
-
-              <li class="list-chat" v-for="(contact, index) in contacts">
+              <li class="list-chat"
+                v-for="(contact, index) in contacts"
+                :class="{ 'bg-active': selectedContactIndex === index }"
+                @click="selectContact(index)">
                 <img :src="contact.avatar">
                 <div class="info-c">
-                  <p class="name-user">{{contact.name}}</p>
-                  <p class="msg-user">{{contact.messages[0].message}}</p>
+                  <p class="name-user">{{ contact.name }}</p>
+                  <p class="msg-user">{{ contact.messages[0].message }}</p>
                 </div>
-                <span class="date-user">{{contact.messages[0].date}}</span>
+                <span class="date-user">{{ contact.messages[0].date }}</span>
               </li>
-
             </ul>
 
           </div>
@@ -84,9 +85,9 @@
             <div class="info-chat">
 
               <div class="info-chat-left">
-                <img src="./img/avatar_3.jpg">
+                <img :src="activeContact.avatar">
                 <div class="info-c">
-                  <div class="name-user">Mariottide</div>
+                  <div class="name-user">{{ activeContact.name }}</div>
                   <div class="msg-user">Ultimo accesso oggi alle 12:00</div>
                 </div>
               </div>
@@ -102,19 +103,12 @@
             <div class="main-chat">
 
               <div>
-                <div class="message sent">
-                  Zara ha mangiato i biscotti?
+                <div v-for="(message, messageIndex) in activeContact.messages"
+                class="message"
+                :class="{ sent: message.status === 'sent', received: message.status === 'received' }"
+                >{{ message.message }}
                   <div class="date-msg">
-                    <span id="date">12:00</span>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <div class="message received">
-                  Sì
-                  <div class="date-msg">
-                    <span id="date">12:00</span>
+                    <span id="date">{{ message.date }}</span>
                   </div>
                 </div>
               </div>

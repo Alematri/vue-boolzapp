@@ -5,7 +5,9 @@ const { createApp } = Vue;
 createApp({
   data(){
     return{
-      clock: '',    
+      activeContact: '',
+      selectedContactIndex: '',
+      clock: '',
       contacts: [
         {
             name: 'Michele',
@@ -172,8 +174,24 @@ createApp({
     }
   },
 
+  methods: {
+    setActiveContact(contact) {
+      this.activeContact = contact;
+    },
+    selectContact(index) {
+      this.selectedContactIndex = index;
+      this.setActiveContact(this.contacts[index]);
+    },
+  },
+
   mounted(){
-    this.clock = dt.now().setLocale('it').toLocateString(dt.DATETIME_SHORT_WHIT_SECONDS)
+    this.setActiveContact(this.contacts[0]);
+    this.selectedContactIndex = 0;
+    this.clock = dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
+
+    const infoChatLeft = document.querySelector('.info-chat-left');
+    infoChatLeft.querySelector('img').src = this.activeContact.avatar;
+    infoChatLeft.querySelector('.name-user').textContent = this.activeContact.name;
   },
 
 }).mount('#app');
