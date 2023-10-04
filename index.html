@@ -37,7 +37,7 @@
 
             <div class="info">
               <div class="left-info">
-                <img src="./img/avatar_1.jpg">
+                <img src="/img/avatar_io.jpg">
                 <h5 id="user">Alematri</h5>
               </div>
 
@@ -60,20 +60,23 @@
 
             <div class="search">
               <i class="fas fa-search"></i>
-              <input type="text" placeholder="Cerca o inizia una nuova chat">
+              <input
+              type="text"
+              v-model="searchText"
+              placeholder="Cerca o inizia una nuova chat">
             </div>
             
             <ul class="list">
               <li class="list-chat"
-                v-for="(contact, index) in contacts"
+                v-for="(contact, index) in filteredContacts"
                 :class="{ 'bg-active': selectedContactIndex === index }"
                 @click="selectContact(index)">
                 <img :src="contact.avatar">
                 <div class="info-c">
                   <p class="name-user">{{ contact.name }}</p>
-                  <p class="msg-user">{{ contact.messages[0].message }}</p>
+                  <p class="msg-user">{{ contact.messages[contact.messages.length - 1].message }}</p>
                 </div>
-                <span class="date-user">{{ contact.messages[0].date }}</span>
+                <span class="date-user">{{ contact.messages[contact.messages.length - 1].date }}</span>
               </li>
             </ul>
 
@@ -88,7 +91,9 @@
                 <img :src="activeContact.avatar">
                 <div class="info-c">
                   <div class="name-user">{{ activeContact.name }}</div>
-                  <div class="msg-user">Ultimo accesso oggi alle 12:00</div>
+                  <p class="msg-user" v-if="activeContact.messages && activeContact.messages.length > 0">
+                    Ultimo accesso {{ activeContact.messages[activeContact.messages.length - 1].date }}
+                  </p>                 
                 </div>
               </div>
 

@@ -8,10 +8,11 @@ createApp({
       activeContact: '',
       selectedContactIndex: '',
       clock: '',
+      searchText: '',
       contacts: [
         {
             name: 'Michele',
-            avatar: '../img/avatar_1.jpg',
+            avatar: './img/avatar_1.jpg',
             visible: true,
             messages: [
                 {
@@ -33,7 +34,7 @@ createApp({
         },
         {
             name: 'Fabio',
-            avatar: '../img/avatar_2.jpg',
+            avatar: './img/avatar_2.jpg',
             visible: true,
             messages: [
                 {
@@ -55,7 +56,7 @@ createApp({
         },
         {
             name: 'Samuele',
-            avatar: '../img/avatar_3.jpg',
+            avatar: './img/avatar_3.jpg',
             visible: true,
             messages: [
                 {
@@ -77,7 +78,7 @@ createApp({
         },
         {
             name: 'Alessandro B.',
-            avatar: '../img/avatar_4.jpg',
+            avatar: './img/avatar_4.jpg',
             visible: true,
             messages: [
                 {
@@ -94,7 +95,7 @@ createApp({
         },
         {
             name: 'Alessandro L.',
-            avatar: '../img/avatar_5.jpg',
+            avatar: './img/avatar_5.jpg',
             visible: true,
             messages: [
                 {
@@ -111,7 +112,7 @@ createApp({
         },
         {
             name: 'Claudia',
-            avatar: '../img/avatar_6.jpg',
+            avatar: './img/avatar_6.jpg',
             visible: true,
             messages: [
                 {
@@ -133,7 +134,7 @@ createApp({
         },
         {
             name: 'Federico',
-            avatar: '../img/avatar_7.jpg',
+            avatar: './img/avatar_7.jpg',
             visible: true,
             messages: [
                 {
@@ -150,7 +151,7 @@ createApp({
         },
         {
             name: 'Davide',
-            avatar: '../img/avatar_8.jpg',
+            avatar: './img/avatar_8.jpg',
             visible: true,
             messages: [
                 {
@@ -203,7 +204,7 @@ createApp({
       setTimeout(() => {
         this.activeContact.messages.push({
           date: dt.now().toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS),
-          message: 'Ok',
+          message: 'Tu ma',
           status: 'received',
         });
       }, 2000);
@@ -219,6 +220,20 @@ createApp({
     const infoChatLeft = document.querySelector('.info-chat-left');
     infoChatLeft.querySelector('img').src = this.activeContact.avatar;
     infoChatLeft.querySelector('.name-user').textContent = this.activeContact.name;
+  },
+
+  computed: {
+    filteredContacts() {
+      const searchTerm = this.searchText.trim().toLowerCase();
+      if (!searchTerm) {
+        // tutti i contatti se la ricerca è vuota
+        return this.contacts;
+      }
+  
+      return this.contacts.filter((contact) =>
+        contact.name.toLowerCase().includes(searchTerm)
+      );
+    },
   },
 
 }).mount('#app');
